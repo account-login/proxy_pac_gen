@@ -38,10 +38,18 @@ function domain_find(t, key) {
 
 function ip_to_int(ip) {
     'use strict';
+
     var num = 0;
-    var ip_array = ip.split('.').map(function(element, b, c){ return parseInt(element); });
+    var ip_array = ip.split('.').map(function(element, b, c) { return parseInt(element); });
+    if (ip_array.length !== 4) {
+        return 0;
+    }
+
     for (var i = 0; i < 4; ++i) {
         if (isNaN(ip_array[i])) {
+            return 0;
+        }
+        if (ip_array[i] < 0 || ip_array[i] >= 256) {
             return 0;
         }
 
