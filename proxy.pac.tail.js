@@ -61,6 +61,7 @@ function ip_to_int(ip) {
 
 
 var r_proxy = 'SOCKS5 127.0.0.1:1080';
+// var r_proxy = 'PROXY 127.0.0.1:8080';
 var r_blackhole = 'PROXY 127.0.0.1:8086';
 var r_noproxy = 'DIRECT';
 
