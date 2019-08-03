@@ -39,6 +39,10 @@ function domain_find(t, key) {
 function ip_to_int(ip) {
     'use strict';
 
+    if (!ip) {
+        return 0;
+    }
+
     var num = 0;
     var ip_array = ip.split('.').map(function(element, b, c) { return parseInt(element); });
     if (ip_array.length !== 4) {
@@ -96,7 +100,7 @@ function FindProxyForURL(url, host) {
     }
 
     // cn ip
-    if (ip_search(ip_num, g_noproxy_iplist, 0, g_noproxy_iplist.length)) {
+    if (ip_num && ip_search(ip_num, g_noproxy_iplist, 0, g_noproxy_iplist.length)) {
         log('ip hit. host: ' + host + ', ip: ' + ip_num);
         return r_noproxy;
     }
