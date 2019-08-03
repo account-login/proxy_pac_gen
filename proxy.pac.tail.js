@@ -80,18 +80,18 @@ function log(msg) {
 
 
 function FindProxyForURL(url, host) {
-	'use strict';
+    'use strict';
 
-	// localhost
-	if(localHostOrDomainIs(host, "host.in.white.list")) {
-		return r_noproxy;
-	}
+    // localhost
+    if(localHostOrDomainIs(host, "host.in.white.list")) {
+        return r_noproxy;
+    }
 
-	var ip_num = ip_to_int(host);
+    var ip_num = ip_to_int(host);
     // whitelist domain
     if (!ip_num && domain_find(g_noproxy_tree, host)) {
         log('white domain: ' + host);
-	    return r_noproxy;
+        return r_noproxy;
     }
 
     if (!ip_num) {
